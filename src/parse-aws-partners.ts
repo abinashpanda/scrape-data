@@ -8,8 +8,8 @@ const apiClient = axios.create({
   baseURL: 'https://api.finder.partners.aws.a2z.com',
 })
 
-const MAX_PAGES = 2
-const PAGE_SIZE = 10
+const MAX_PAGES = process.env.MAX_PAGES ? Number.parseInt(process.env.MAX_PAGES) : 2
+const PAGE_SIZE = process.env.PAGE_SIZE ? Number.parseInt(process.env.PAGE_SIZE) : 10
 
 export async function parse() {
   const partners = []
